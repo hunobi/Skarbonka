@@ -1,0 +1,139 @@
+﻿<Window x:Class="Skarbonka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Skarbonka"
+        mc:Ignorable="d"
+        Title="Skarbonka" Height="400" Width="600" ResizeMode="CanMinimize" Background="#FF040438" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid Name="Logowanie" Visibility="Visible">
+            <TextBox Name="Logowanie_Login" HorizontalAlignment="Left" Height="40" Margin="205,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFB3CE17" />
+            <PasswordBox Name="Logowanie_Haslo" HorizontalAlignment="Left" Height="40" Margin="205,200,0,0"  VerticalAlignment="Top" Width="185" PasswordChar="●" Password="" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFB3CE17" FontSize="20"/>
+            <Button Name="Logowanie_Zaloguj" Content="Zaloguj" HorizontalAlignment="Left" Margin="245,260,0,0" VerticalAlignment="Top" Width="100" Height="35" Background="#FF11144B" Foreground="#FF85ED13" FontSize="20" FontWeight="Bold" FontFamily="Tempus Sans ITC" Click="Logowanie_Zaloguj_Click"/>
+            <Label Content="Logowanie" HorizontalAlignment="Left" Margin="85,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="72" FontFamily="Showcard Gothic"/>
+            <Label Name="Logowanie_Error" Content="Niepoprawne dane logowania!" HorizontalAlignment="Left" Margin="150,99,0,0" VerticalAlignment="Top" Width="305" Background="{x:Null}" Foreground="#FFF01111" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontStyle="Italic" FontWeight="Bold" Visibility="Hidden" />
+        </Grid>
+
+        <Grid Name="Main" Visibility="Hidden">
+            <Label Content="Strona Główna" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="60" FontFamily="Showcard Gothic"/>
+            <Ellipse HorizontalAlignment="Left" Height="10" Margin="10,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="574">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFC7321A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button Name="Main_Saldo" Content="Saldo" HorizontalAlignment="Left" Margin="50,115,0,0" VerticalAlignment="Top" Width="150" Height="60" Background="#FF11144B" Foreground="#FFECED13" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Click="Main_Saldo_Click"  />
+            <Button Name="Main_Info" Content="Info" HorizontalAlignment="Left" Margin="50,195,0,0" VerticalAlignment="Top" Width="150" Height="60" Background="#FF11144B" Foreground="#FFECED13" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Click="Main_Info_Click" />
+
+            <Button Name="Main_Add_Debt" Content="Dodaj Dług" HorizontalAlignment="Left" Margin="230,115,0,0" VerticalAlignment="Top" Width="295" Height="60" Background="#FF11144B" Foreground="#FFECED13" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Click="Main_Add_Debt_Click" />
+            <Button Name="Main_Modify_Debt" Content="Modyfikuj Dług" HorizontalAlignment="Left" Margin="230,195,0,0" VerticalAlignment="Top" Width="295" Height="60" Background="#FF11144B" Foreground="#FFECED13" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Click="Main_Modify_Debt_Click" />
+            <Button Name="Main_Show_Debt" Content="Wyświetl Długi" HorizontalAlignment="Left" Margin="230,275,0,0" VerticalAlignment="Top" Width="295" Height="60" Background="#FF11144B" Foreground="#FFECED13" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Click="Main_Show_Debt_Click" />
+
+            <Button Name="Main_Wyloguj" Content="Wyloguj" HorizontalAlignment="Left" Margin="50,275,0,0" VerticalAlignment="Top" Width="150" Height="60" Background="#FF11144B" Foreground="#FFCB3312" FontSize="18" FontWeight="Bold" FontFamily="Wide Latin" Click="Main_Wyloguj_Click" />
+
+        </Grid>
+
+        <Grid Name ="Saldo" Visibility="Hidden">
+            <Label Content="Saldo" HorizontalAlignment="Left" Margin="215,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="60" FontFamily="Showcard Gothic" Width="200"/>
+            <Ellipse HorizontalAlignment="Left" Height="10" Margin="10,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="574">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFC7321A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Content="Modyfikuj saldo" Margin="185,120,163.6,0" VerticalAlignment="Top" Height="65" FontSize="40" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <TextBox Name="Saldo_Texbox" HorizontalAlignment="Left" Height="40" Margin="155,185,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="300" FontSize="25" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" />
+            <Button Name="Saldo_OK" Content="OK" HorizontalAlignment="Left" Margin="240,250,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="Saldo_OK_Click" />
+            <Button Name="Saldo_Back" Content="Wróć" HorizontalAlignment="Left" Margin="450,310,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="Saldo_Back_Click" />
+        </Grid>
+
+        <Grid Name ="Info" Visibility="Hidden">
+            <Label Content="Info" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="60" FontFamily="Showcard Gothic" Width="200"/>
+            <Ellipse HorizontalAlignment="Left" Height="10" Margin="10,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="574">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFC7321A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Content="Imie:" Margin="10,100,503.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Label Content="Nazwisko:" Margin="10,170,448.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Label Content="Saldo" Margin="395,100,48.6,0" VerticalAlignment="Top" Height="65" FontSize="40" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Button Name="Info_Back" Content="Wróć" HorizontalAlignment="Left" Margin="450,310,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="Info_Back_Click"  />
+            <Label Name="Info_Imie" Content="non" Margin="95,100,348.6,0" VerticalAlignment="Top" Height="60" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF94560E" />
+            <Label Name="Info_Nazwisko" Content="non" Margin="145,170,298.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF94560E" />
+            <Label Name="Info_Saldo" Content="non" Margin="315,145,33.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FFFFEE00" Background="{x:Null}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <Label Content="Data Rejestracji:" Margin="10,240,413.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Label Name="Info_Data" Content="non" Margin="10,280,318.6,0" VerticalAlignment="Top" Height="55" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF94560E" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        </Grid>
+
+        <Grid Name ="AddDebt" Visibility="Hidden">
+            <Label Content="Długi" HorizontalAlignment="Left" Margin="210,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="60" FontFamily="Showcard Gothic" Width="200"/>
+            <Ellipse HorizontalAlignment="Left" Height="10" Margin="10,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="574">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFC7321A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Content="Adresat:" Margin="10,105,483.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Label Content="Kwota:" Margin="10,170,498.6,0" VerticalAlignment="Top" Height="40" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Label Content="Komentarz" Margin="10,220,433.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <Button Name="AddDebt_Back" Content="Wróć" HorizontalAlignment="Left" Margin="450,310,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="AddDebt_Back_Click"   />
+            <Label Content="Data Pozyczki" Margin="380,105,43.6,0" VerticalAlignment="Top" Height="65" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <TextBox Name="AddDebt_Adresat" HorizontalAlignment="Left" Height="40" Margin="100,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFB3CE17" />
+            <TextBox Name="AddDebt_Kwota" HorizontalAlignment="Left" Height="40" Margin="100,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFB3CE17" PreviewTextInput="NumberValidationTextBox" />
+            <TextBox Name="AddDebt_Komentarz" HorizontalAlignment="Left" Height="80" Margin="10,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="310" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFB3CE17" MaxLength="84" />
+            <TextBox Name="AddDebt_Data_Pozyczki" HorizontalAlignment="Left" Height="60" Margin="365,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFB3CE17" />
+            <Button Name="AddDebt_OK" Content="Potwierdź" HorizontalAlignment="Left" Margin="450,255,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="AddDebt_OK_Click"   />
+        </Grid>
+
+        <Grid Name="ModifyDebt" Visibility="Hidden">
+            <Label Content="Długi" HorizontalAlignment="Left" Margin="205,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="60" FontFamily="Showcard Gothic" Width="200"/>
+            <Ellipse HorizontalAlignment="Left" Height="10" Margin="10,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="574">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFC7321A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Content="Podaj ID Długu który został uregulowany" Margin="95,110,63.6,0" VerticalAlignment="Top" Height="45" FontSize="30" FontFamily="Rockwell Condensed" Foreground="#FF78A032" />
+            <TextBox Name="ModifyDebt_ID" HorizontalAlignment="Left" Height="40" Margin="205,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Background="#FF0A173C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFB3CE17" PreviewTextInput="NumberValidationTextBox" />
+            <Button Name="ModifyDebt_Back" Content="Wróć" HorizontalAlignment="Left" Margin="450,310,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="ModifyDebt_Back_Click"   />
+            <Button Name="ModifyDebt_OK" Content="Potwierdź" HorizontalAlignment="Left" Margin="235,215,0,0" VerticalAlignment="Top" Width="125" Height="40" FontSize="25" FontFamily="Segoe UI Semibold" Click="ModifyDebt_OK_Click"   />
+        </Grid>
+
+        <Grid Name="ShowDebt" Visibility="Hidden">
+            <Label Content="Długi" HorizontalAlignment="Left" Margin="205,0,0,0" VerticalAlignment="Top" Foreground="#FF03FD06" FontSize="60" FontFamily="Showcard Gothic" Width="200"/>
+            <Ellipse HorizontalAlignment="Left" Height="10" Margin="10,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="574">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFC7321A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button Name="ShowDebt_Back" Content="Wróć" HorizontalAlignment="Left" Margin="270,325,0,0" VerticalAlignment="Top" Width="60" Height="25" FontSize="14" FontFamily="Segoe UI Semibold"  VerticalContentAlignment="Center" Click="ShowDebt_Back_Click"   />
+            <DataGrid Name="Tabela" ItemsSource="{Binding}" HorizontalAlignment="Center" Height="220" Margin="10,100,9.6,50.4" VerticalAlignment="Center" Width="574" AutoGenerateColumns="false" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FF192F6C"  FontSize="14" CanUserReorderColumns="False" CanUserResizeColumns="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" MinWidth="50" FontWeight="Normal"/>
+                    <DataGridTextColumn Header="Dłużnik" Binding="{Binding Dluznik}" MinWidth="70" FontWeight="Normal"/>
+                    <DataGridTextColumn Header="Kwota" Binding="{Binding Kwota}" MinWidth="70" FontWeight="Normal"/>
+                    <DataGridTextColumn Header="Data Pożyczki" Binding="{Binding Data_Pozyczki}" MinWidth="100" FontWeight="Normal"/>
+                    <DataGridTextColumn Header="Data Zwrotu" Binding="{Binding Data_Zwrotu}" MinWidth="100" FontWeight="Normal"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" MinWidth="70" FontWeight="Normal"/>
+                    <DataGridTextColumn Header="Komentarz" Binding="{Binding Komentarz}" MinWidth="180" FontWeight="Normal"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Window>
